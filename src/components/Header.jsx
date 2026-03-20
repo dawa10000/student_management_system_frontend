@@ -6,6 +6,7 @@ import SearchForm from "../features/search/searchForm.jsx";
 import DropDownMenu from "./DropDownMenu.jsx";
 
 
+
 export default function Header() {
   const { user } = useSelector((state) => state.userSlice);
   return (

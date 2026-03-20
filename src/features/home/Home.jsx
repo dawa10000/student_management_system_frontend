@@ -5,6 +5,7 @@ import { Button } from '../../components/ui/button.jsx'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux';
 import StudentList from '../addstudent/StudentList.jsx';
+import SearchForm from '../search/SearchForm.jsx';
 
 export default function Home() {
   const nav = useNavigate();
@@ -17,7 +18,9 @@ export default function Home() {
 
 
   return (
+
     <div>
+      <SearchForm />
       <Button onClick={() => nav('/student-add')}>Add Student</Button>
 
       <StudentList />

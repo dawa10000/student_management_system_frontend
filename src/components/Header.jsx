@@ -2,7 +2,6 @@ import { NavLink } from "react-router";
 
 import { Button } from "./ui/button.jsx";
 import { useSelector } from "react-redux";
-import SearchForm from "../features/search/searchForm.jsx";
 import DropDownMenu from "./DropDownMenu.jsx";
 
 
@@ -14,10 +13,6 @@ export default function Header() {
       <div>
         <h2>Student Management System</h2>
       </div >
-
-      <div>
-        <SearchForm />
-      </div>
 
       <div>
         {user ? <DropDownMenu user={user} /> : <div className="flex gap-3">

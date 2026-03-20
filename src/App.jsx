@@ -9,6 +9,7 @@ import StudentAddForm from "./features/addstudent/StudentAddForm.jsx";
 import Home from "./features/home/Home.jsx";
 import SearchPage from "./features/search/SearchPage.jsx";
 import IsLogin from "./components/IsLogin.jsx";
+import RequireAuth from "./features/auth/RequireAuth.jsx";
 
 
 
@@ -20,11 +21,8 @@ export default function App() {
       path: "/",
       element: <RootLayout />,
       children: [
-        {
-          index: true,
-          element: <Login />
-        },
 
+        // ✅ Public routes (only if NOT logged in)
         {
           element: <IsLogin />,
           children: [
@@ -39,36 +37,44 @@ export default function App() {
           ]
         },
 
+        // ✅ Protected routes (ONLY if logged in)
         {
-          path: "home",
-          element: <Home />
-        },
-        {
-          path: "dashboard",
-          element: <Dashboard />
-        },
-        {
-          path: "student-add",
-          element: <StudentAddForm />
-        },
-        {
-          path: "student-edit/:id",
-          element: <StudentEditForm />
+          element: <RequireAuth />,
+          children: [
+            {
+              path: "home",
+              element: <Home />
+            },
+            {
+              path: "dashboard",
+              element: <Dashboard />
+            },
+            {
+              path: "student-add",
+              element: <StudentAddForm />
+            },
+            {
+              path: "student-edit/:id",
+              element: <StudentEditForm />
+            },
+            {
+              path: "profile",
+              element: <UserProfile />
+            },
+            {
+              path: "search",
+              element: <SearchPage />
+            }
+          ]
         },
 
+        // ✅ Default redirect
         {
-          path: "profile",
-          element: <UserProfile />
-        },
-
-        {
-          path: 'search',
-          element: <SearchPage />
+          index: true,
+          element: <Login />
         }
-
       ]
     }
   ]);
-
   return <RouterProvider router={router} />
 }

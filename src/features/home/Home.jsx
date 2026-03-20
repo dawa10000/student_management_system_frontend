@@ -20,8 +20,12 @@ export default function Home() {
   return (
 
     <div>
-      <SearchForm />
-      <Button onClick={() => nav('/student-add')}>Add Student</Button>
+      <div className='flex gap-5 p-3'>
+
+        <Button onClick={() => nav('/student-add')}>Add Student</Button>
+        <SearchForm />
+      </div>
+
 
       <StudentList />
     </div>

@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // export const baseUrl = 'http://localhost:5000/api';
-// export const base = 'http://localhost:5000'
+// export const base = 'http://localhost:5000';
 
 
 export const baseUrl = 'https://student-mgmt-system-backend.onrender.com/api';

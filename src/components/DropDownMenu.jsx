@@ -59,7 +59,7 @@ const DropDownMenu = ({ user }) => {
                 switch (item.property) {
 
                   case 'Home':
-                    nav('/')
+                    nav('/home')
                     break;
                   case 'Sign Out':
                     dispatch(removeUser());

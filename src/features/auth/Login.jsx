@@ -61,12 +61,12 @@ export default function Login() {
                 toast.success('Login Successfully');
 
                 dispatch(setUser(response));
-                nav('/');
+                nav('/home');
 
 
               } catch (err) {
                 console.log(err);
-
+                toast.error(err.data.message || err.data);
               }
             }}
           >

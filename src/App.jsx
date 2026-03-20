@@ -22,7 +22,7 @@ export default function App() {
       children: [
         {
           index: true,
-          element: <Home />
+          element: <Login />
         },
 
         {
@@ -39,6 +39,10 @@ export default function App() {
           ]
         },
 
+        {
+          path: "home",
+          element: <Home />
+        },
         {
           path: "dashboard",
           element: <Dashboard />

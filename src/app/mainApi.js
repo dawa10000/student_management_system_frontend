@@ -4,8 +4,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // export const base = 'http://localhost:5000'
 
 
-export const baseUrl = 'https://student-mgmt-system-backend.onrender.com//api';
-export const base = 'https://student-mgmt-system-backend.onrender.com/';
+export const baseUrl = 'https://student-mgmt-system-backend.onrender.com/api';
+export const base = 'https://student-mgmt-system-backend.onrender.com';
 
 export const mainApi = createApi({
   reducerPath: 'mainApi',

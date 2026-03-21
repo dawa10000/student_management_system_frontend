@@ -22,6 +22,10 @@ export default function Dashboard() {
     "#A855F7", // purple
     "#14B8A6", // teal
     "#F43F5E", // pink
+    "#8B5CF6", // violet
+    "#F97316", // orange
+    "#10B981", // emerald
+    "#EAB308", // yellow
   ];
   const { data, isLoading, error } = useGetDashboardStatsQuery();
 

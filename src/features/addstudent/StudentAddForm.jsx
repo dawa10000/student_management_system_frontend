@@ -44,9 +44,7 @@ export default function StudentAddForm() {
   const { user } = useSelector((state) => state.userSlice);
   const [addStudent, { isLoading }] = useCreateStudentMutation();
   const nav = useNavigate();
-  useEffect(() => {
-    if (!user) nav("/login");
-  }, [user, nav]);
+
   return (
     <div className="flex justify-center items-center p-9">
       <Card className="w-full max-w-sm">

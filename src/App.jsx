@@ -42,6 +42,10 @@ export default function App() {
           element: <RequireAuth />,
           children: [
             {
+              index: true,
+              element: <Home />
+            },
+            {
               path: "dashboard",
               element: <Dashboard />
             },

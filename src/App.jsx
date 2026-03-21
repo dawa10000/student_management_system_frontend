@@ -22,7 +22,7 @@ export default function App() {
       element: <RootLayout />,
       children: [
 
-        // ✅ Public routes (only if NOT logged in)
+        //  Public routes (only if NOT logged in)
         {
           element: <IsLogin />,
           children: [
@@ -37,14 +37,10 @@ export default function App() {
           ]
         },
 
-        // ✅ Protected routes (ONLY if logged in)
+        //  Protected routes (ONLY if logged in)
         {
           element: <RequireAuth />,
           children: [
-            {
-              path: "home",
-              element: <Home />
-            },
             {
               path: "dashboard",
               element: <Dashboard />
@@ -68,10 +64,10 @@ export default function App() {
           ]
         },
 
-        // ✅ Default redirect
+        // Default redirect
         {
           index: true,
-          element: <Login />
+          element: <Home />
         }
       ]
     }

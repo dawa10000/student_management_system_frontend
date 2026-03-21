@@ -10,6 +10,7 @@ import Home from "./features/home/Home.jsx";
 import SearchPage from "./features/search/SearchPage.jsx";
 import IsLogin from "./components/IsLogin.jsx";
 import RequireAuth from "./features/auth/RequireAuth.jsx";
+import { Navigate } from "react-router";
 
 
 
@@ -42,7 +43,7 @@ export default function App() {
           element: <RequireAuth />,
           children: [
             {
-              index: true,
+              path: "home",
               element: <Home />
             },
             {
@@ -68,7 +69,11 @@ export default function App() {
           ]
         },
 
-
+        // Default redirect
+        {
+          index: true,
+          element: <Navigate to="/login" />
+        }
       ]
     }
   ]);

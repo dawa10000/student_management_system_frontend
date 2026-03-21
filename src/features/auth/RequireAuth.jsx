@@ -1,8 +1,9 @@
-import { Outlet, Navigate } from "react-router";
-import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router-dom";
 
-export default function RequireAuth() {
-  const { user } = useSelector((state) => state.userSlice);
+const RequireAuth = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
 
-  return user ? <Outlet /> : <Navigate to="/login" />;
-}
+  return user ? <Outlet /> : <Navigate to="/login" replace />;
+};
+
+export default RequireAuth;

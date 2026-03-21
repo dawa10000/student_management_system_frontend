@@ -1,12 +1,9 @@
-import { useSelector } from "react-redux";
-import { Navigate, Outlet, useLocation } from "react-router";
+import { Navigate, Outlet } from "react-router-dom";
 
-export default function IsLogin() {
+const IsLogin = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
 
-  const location = useLocation();
-  console.log(location);
+  return user ? <Navigate to="/home" replace /> : <Outlet />;
+};
 
-  const { user } = useSelector((state) => state.userSlice);
-
-  return !user ? <Outlet /> : <Navigate to="/" state={{ from: location }} replace />
-}
+export default IsLogin;

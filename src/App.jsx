@@ -68,11 +68,7 @@ export default function App() {
           ]
         },
 
-        // Default redirect
-        {
-          index: true,
-          element: <Login />
-        }
+
       ]
     }
   ]);

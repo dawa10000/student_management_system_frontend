@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button"
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -33,16 +31,14 @@ const studentSchema = Yup.object({
   age: Yup.number().required('Age is required'),
   email: Yup.string().email('Invalid email format').required('Email is required'),
   courseEnrolled: Yup.string().required('Course is required'),
-  image: Yup.mixed().test(
-    'fileType',
-    'Unsupported File Format',
-    (value) => {
-      if (value) {
-        return ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/jpg'].includes(value.type)
-      }
-      return true
+  image: Yup.mixed().test("fileType", "Unsupported File Format", (value) => {
+    if (value) {
+      return ["image/jpeg", "image/png", "image/gif", "image/webp", "image/jpg"].includes(
+        value.type
+      );
     }
-  )
+    return true;
+  }),
 })
 
 export default function StudentEditForm() {
@@ -72,12 +68,12 @@ export default function StudentEditForm() {
           <Formik
 
             initialValues={{
-              name: data?.name,
-              email: data?.email,
-              age: data?.age,
-              courseEnrolled: data?.courseEnrolled,
+              name: data.name,
+              email: data.email,
+              age: data.age,
+              courseEnrolled: data.courseEnrolled,
               image: '',
-              imagePreview: data?.image
+              imagePreview: data.image,
             }}
 
             onSubmit={async (val) => {
@@ -86,7 +82,7 @@ export default function StudentEditForm() {
               formData.append('email', val.email);
               formData.append('age', val.age);
               formData.append('courseEnrolled', val.courseEnrolled);
-              formData.append('image', val.image);
+              if (val.image) formData.append("image", val.image);
 
 
 
@@ -188,16 +184,22 @@ export default function StudentEditForm() {
                       type="file"
                       onChange={(e) => {
                         const file = e.target.files[0];
-                        setFieldValue('imagePreview', URL.createObjectURL(file));
-                        setFieldValue('image', file);
+                        if (!file) return;
+                        setFieldValue("imagePreview", URL.createObjectURL(file));
+                        setFieldValue("image", file);
 
                       }}
-
-
                     />
-                    {touched.image && errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
-                    {values.imagePreview && !errors.image && <img src={values.image ? values.imagePreview : `${base}/${values.imagePreview}`} alt="" />}
-
+                    {touched.image && errors.image && (
+                      <p className="text-red-500 text-sm">{errors.image}</p>
+                    )}
+                    {values.imagePreview && (
+                      <img
+                        src={values.image ? values.imagePreview : `${base}/${values.imagePreview}`}
+                        alt="preview"
+                        className="mt-2 w-32 h-32 object-cover rounded"
+                      />
+                    )}
                   </div>
                   <Button
                     disabled={isLoading}

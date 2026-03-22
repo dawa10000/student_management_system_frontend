@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useGetStudentsQuery } from '../student/studentApi.js';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table.jsx';
-import { Avatar, AvatarImage } from '../../components/ui/avatar.jsx';
+import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar.jsx';
 import { Button } from '../../components/ui/button.jsx';
 import { base } from '../../app/mainApi.js';
 import DeleteStudent from './DeleteStudent.jsx';
@@ -72,7 +72,8 @@ export default function StudentList() {
                   <TableCell>
                     <div className='flex items-center gap-3'>
                       <Avatar className="w-14 h-14 rounded-full overflow-hidden">
-                        <AvatarImage className="object-cover w-full h-full" src={`${base}/${image}`} alt='image' />
+                        <AvatarImage className="object-cover w-full h-full" src={`${base}/${image}`} alt='AV' />
+                        <AvatarFallback className='text-xs'>AV</AvatarFallback>
                       </Avatar>
                       <div className='font-medium'>{name}</div>
                     </div>
@@ -80,7 +81,7 @@ export default function StudentList() {
                   <TableCell>{email}</TableCell>
                   <TableCell>{age}</TableCell>
                   <TableCell>{courseEnrolled}</TableCell>
-                  <TableCell className="flex gap-2">
+                  <TableCell className="flex mt-2 gap-2">
                     <Button onClick={() => nav(`/student-edit/${_id}`)} variant="ghost">
                       <EditIcon />
                     </Button>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -35,10 +35,6 @@ export default function UserProfile() {
   const nav = useNavigate();
   const { user } = useSelector((state) => state.userSlice);
 
-
-  useEffect(() => {
-    if (!user) nav("/login");
-  }, [user, nav]);
 
 
   const { isLoading, data, error } = useGetUserQuery(user?.token, {

@@ -16,7 +16,7 @@ export default function Dashboard() {
     "Data Science": "#4F46E5",
     "Data Analysis": "#22C55E",
     "Power BI": "#F59E0B",
-    "Mern Stack": "#EF4444",
+    "MERN Stack": "#EF4444",
     "Full Stack With JS": "#06B6D4",
     "Python With Django": "#A855F7",
     "Flutter": "#14B8A6",
@@ -63,18 +63,7 @@ export default function Dashboard() {
           </BarChart>
         </ResponsiveContainer>
 
-        {/* Legend */}
-        <div className="flex flex-wrap gap-3 mt-4">
-          {Object.entries(courseColors).map(([course, color]) => (
-            <div key={course} className="flex items-center gap-2 text-sm">
-              <span
-                className="w-3 h-3 rounded-full"
-                style={{ backgroundColor: color }}
-              ></span>
-              {course}
-            </div>
-          ))}
-        </div>
+
       </div>
 
       {/* Recent Students */}

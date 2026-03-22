@@ -72,7 +72,10 @@ export default function StudentList() {
                   <TableCell>
                     <div className='flex items-center gap-3'>
                       <Avatar className="w-14 h-14 rounded-full overflow-hidden">
-                        <AvatarImage className="object-cover w-full h-full" src={`${base}/${image}`} alt='image' />
+                        <AvatarImage
+                          src={image ? `${base}/uploads/${image}` : "/default-avatar.png"}
+                          onError={(e) => (e.target.src = "/default-avatar.png")}
+                        />
                       </Avatar>
                       <div className='font-medium'>{name}</div>
                     </div>

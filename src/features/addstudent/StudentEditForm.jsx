@@ -196,7 +196,7 @@ export default function StudentEditForm() {
 
                     />
                     {touched.image && errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
-                    {values.imagePreview && !errors.image && <img src={values.image ? values.imagePreview : `${base}/${values.imagePreview}`} alt="" />}
+                    {values.imagePreview && !errors.image && <img src={values.image ? values.imagePreview : `${base}/uploads/${values.imagePreview}`} alt="" />}
 
                   </div>
                   <Button

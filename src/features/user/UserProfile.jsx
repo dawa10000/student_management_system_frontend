@@ -136,7 +136,7 @@ export default function UserProfile() {
                     )}
                     {values.imagePreview && (
                       <img
-                        src={values.image ? values.imagePreview : `${base}/${values.imagePreview}`}
+                        src={values.image ? values.imagePreview : `${base}/uploads/${values.imagePreview}`}
                         alt="preview"
                         className="mt-2 w-32 h-32 object-cover rounded"
                       />

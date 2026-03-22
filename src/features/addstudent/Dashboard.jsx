@@ -63,7 +63,18 @@ export default function Dashboard() {
           </BarChart>
         </ResponsiveContainer>
 
-
+        {/* Legend */}
+        <div className="flex flex-wrap gap-3 mt-4">
+          {Object.entries(courseColors).map(([course, color]) => (
+            <div key={course} className="flex items-center gap-2 text-sm">
+              <span
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: color }}
+              ></span>
+              {course}
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Recent Students */}

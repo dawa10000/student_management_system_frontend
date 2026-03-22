@@ -47,7 +47,7 @@ const DropDownMenu = ({ user }) => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant='secondary' size='icon' className='w-14 h-14 overflow-hidden rounded-full'>
-          <img className="object-cover w-full h-full" src={`${base}/uploads/${data.image}`} alt='Hallie Richards' />
+          <img className="object-cover w-full h-full" src={`${base}/${data.image}`} alt='Hallie Richards' />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className='w-56'>
